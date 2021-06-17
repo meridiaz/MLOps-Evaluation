@@ -1,0 +1,4 @@
+[core]
+    remote = remotodvc
+['remote "remotodvc"']
+    url = /Escritorio/tfg/teleco/dvcstore
