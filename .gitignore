@@ -3,3 +3,4 @@
 /.ipynb_checkpoints/
 /dvc/pruebas_tutorial
 /dvc/dataset_info_adicional.csv
+/airflow/tutorial
