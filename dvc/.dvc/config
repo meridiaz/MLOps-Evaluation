@@ -1,4 +1,4 @@
 [core]
     remote = remotodvc
 ['remote "remotodvc"']
-    url = /Escritorio/tfg/teleco/dvcstore
+    url = /home/meri/Escritorio/tfg/teleco/MLOps-Evaluation/dvc/dvcstore
