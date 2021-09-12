@@ -3,6 +3,8 @@
 /.ipynb_checkpoints/
 /dvc/pruebas_tutorial
 /dvc/dataset_info_adicional.csv
+/dvc/joined_datasets.csv
+/dvc/dvcstore
 /airflow/tutorial
 /mlflow/tutorial
 /pipelines_scikit
