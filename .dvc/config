@@ -1,0 +1,6 @@
+[core]
+    remote = localremote
+['remote "myremotegd"']
+    url = gdrive://1FKoShtDg4S9K7CC46ioAh6Cq9mpA9yuO
+['remote "localremote"']
+    url = ../exp1/dvcstore

@@ -1,0 +1,10 @@
+featurize:
+  max_rank: 100
+  world_rank: 50
+  max_features: 12
+
+train:
+  train_data: cwurData
+  n_est: 100
+
+

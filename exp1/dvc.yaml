@@ -1,0 +1,41 @@
+stages:
+  featurize:
+    cmd: python src/featurization.py ./data/downloaded_data/ ./data/prepared_data/
+    deps:
+    - data/downloaded_data
+    - src/featurization.py
+    params:
+    - featurize.max_features
+    - featurize.max_rank
+    - featurize.world_rank
+    outs:
+    - data/prepared_data
+  train:
+    cmd: python src/train.py ./data/prepared_data/ model.pkl
+    deps:
+    - data/prepared_data/
+    - src/train.py
+    params:
+    - train.n_est
+    - train.train_data
+    outs:
+    - model.pkl
+  evaluate:
+    cmd: python src/evaluate.py model.pkl data/prepared_data/ ./evaluation/scores.json
+      ./evaluation/prc.json ./evaluation/roc.json ./evaluation/confu_mat.csv
+    deps:
+    - data/prepared_data/
+    - model.pkl
+    - src/evaluate.py
+    params:
+    - train.train_data
+    metrics:
+    - ./evaluation/scores.json:
+        cache: false
+    plots:
+    - ./evaluation/confu_mat.csv:
+        cache: false
+    - ./evaluation/prc.json:
+        cache: false
+    - ./evaluation/roc.json:
+        cache: false

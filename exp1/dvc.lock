@@ -1,0 +1,70 @@
+schema: '2.0'
+stages:
+  featurize:
+    cmd: python src/featurization.py ./data/downloaded_data/ ./data/prepared_data/
+    deps:
+    - path: data/downloaded_data
+      md5: e5240f0f7bbfb82b30952ba0040123e8.dir
+      size: 11999397
+      nfiles: 6
+    - path: src/featurization.py
+      md5: 3e5d179667a3cad7abf8a57dc7f729f3
+      size: 11119
+    params:
+      params.yaml:
+        featurize.max_features: 12
+        featurize.max_rank: 100
+        featurize.world_rank: 50
+    outs:
+    - path: data/prepared_data
+      md5: bbe296d011d9f28e8780d99b02f42bc0.dir
+      size: 102189
+      nfiles: 12
+  train:
+    cmd: python src/train.py ./data/prepared_data/ model.pkl
+    deps:
+    - path: data/prepared_data/
+      md5: bbe296d011d9f28e8780d99b02f42bc0.dir
+      size: 102189
+      nfiles: 12
+    - path: src/train.py
+      md5: e9ba889b7c5d3267a6430040a7033396
+      size: 761
+    params:
+      params.yaml:
+        train.n_est: 100
+        train.train_data: cwurData
+    outs:
+    - path: model.pkl
+      md5: 228bef1f2c3c65ad91ffdd979d83d877
+      size: 469178
+  evaluate:
+    cmd: python src/evaluate.py model.pkl data/prepared_data/ ./evaluation/scores.json
+      ./evaluation/prc.json ./evaluation/roc.json ./evaluation/confu_mat.csv
+    deps:
+    - path: data/prepared_data/
+      md5: bbe296d011d9f28e8780d99b02f42bc0.dir
+      size: 102189
+      nfiles: 12
+    - path: model.pkl
+      md5: 228bef1f2c3c65ad91ffdd979d83d877
+      size: 469178
+    - path: src/evaluate.py
+      md5: b36b8de815971fb994f89516bf96642c
+      size: 3052
+    params:
+      params.yaml:
+        train.train_data: cwurData
+    outs:
+    - path: ./evaluation/confu_mat.csv
+      md5: 0c71077396b3cc1a7daa373280a3efbc
+      size: 433
+    - path: ./evaluation/prc.json
+      md5: 7bf38cefdd63115de0bcafe291046729
+      size: 2447
+    - path: ./evaluation/roc.json
+      md5: 45e3edea00f378c92b5bbfff803b56fa
+      size: 3606
+    - path: ./evaluation/scores.json
+      md5: 72f2a2e933bb0da106c35742b5c3e495
+      size: 145
