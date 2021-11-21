@@ -175,6 +175,7 @@ execute_exps = BashOperator(
     	cd {{var.value.path_to_repo}}
 	# make some experiments
 	bash src/exps.sh
+	dvc repro
 	dvc exp run --run-all
 	dvc exp show --no-pager
 	# save some of them
