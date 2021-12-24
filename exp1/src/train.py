@@ -5,6 +5,7 @@ import yaml
 import glob
 import pickle
 import sys
+import os
 
 if len(sys.argv) != 3:
     sys.stderr.write("Arguments error. Usage:\n")
@@ -15,11 +16,12 @@ input = sys.argv[1]
 output = sys.argv[2]
 
 params = yaml.safe_load(open("params.yaml"))["train"]
-path_to_files = input + params['train_data']
+path_to_files = input
+train_data = params['train_data']
 
 # read data
-train_x = pd.read_csv(path_to_files + "-train_x.csv")
-train_y = pd.read_csv(path_to_files + "-train_y.csv")
+train_x = pd.read_csv(os.path.join(path_to_files, train_data+"-train_x.csv"))
+train_y = pd.read_csv(os.path.join(path_to_files, train_data+"-train_y.csv"))
 
 clf = RandomForestClassifier(n_estimators=params['n_est'])
 clf.fit(train_x, train_y.values.flatten())

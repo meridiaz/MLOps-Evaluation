@@ -10,6 +10,7 @@ import yaml
 from sklearn.model_selection import train_test_split
 import sys
 
+# currently not used
 def find_min_top(data):
     #this function calculates max top per year and then the minimum top for all years
     a = data.groupby(['year']).max()
@@ -28,26 +29,27 @@ params = yaml.safe_load(open("params.yaml"))["featurize"]
 le = LabelEncoder()
 
 
-file_names = ["test_x", "test_y", "train_x", "train_y"]
+file_names = ["val_x", "val_y", "train_x", "train_y"]
 
 # create dest dir
 if not os.path.isdir(path_to_write_files):
     os.mkdir(path_to_write_files)
 
 # read in all our data
-education_expenditure_supplementary_data = pd.read_csv(path_to_files + "education_expenditure_supplementary_data.csv" ,engine='python')
+education_expenditure_supplementary_data = pd.read_csv(os.path.join(path_to_files,"education_expenditure_supplementary_data.csv" 
+                                            ), engine='python')
 education_expenditure_supplementary_data.name='education_expenditure_supplementary_data'
 
-shanghaiData = pd.read_csv(path_to_files + "shanghaiData.csv")
+shanghaiData = pd.read_csv(os.path.join(path_to_files, "shanghaiData.csv"))
 shanghaiData.name='shanghaiData'
 
-timesData= pd.read_csv(path_to_files + "timesData.csv")
+timesData= pd.read_csv(os.path.join(path_to_files,"timesData.csv"))
 timesData.name='timesData'
 
-cwurData = pd.read_csv(path_to_files + "cwurData.csv")
+cwurData = pd.read_csv(os.path.join(path_to_files,"cwurData.csv"))
 cwurData.name='cwurData'
 
-school_and_country_table= pd.read_csv(path_to_files + "school_and_country_table.csv")
+school_and_country_table= pd.read_csv(os.path.join(path_to_files,"school_and_country_table.csv"))
 school_and_country_table.name='school_and_country_table'
 
 # count missing values
@@ -97,14 +99,6 @@ shanghaiData = shanghaiData.fillna(method='bfill', axis=0).fillna(0)
 # Number of missing values in each column of data
 missing_val_count_by_column = (shanghaiData.isnull().sum())
 #print(missing_val_count_by_column[missing_val_count_by_column > 0])
-
-# Creating new Score Column that has the mean value of the rest of the scoring 
-# cols which will give a better score.
-
-shanghaiData_features = ['alumni', 'award', 'hici', 'ns', 'pub', 'pcp']
-shanghaiData["Score"] = (shanghaiData[shanghaiData_features].sum(axis=1)/len(shanghaiData_features))*0.1
-shanghaiData["Score_rank"]=(10-shanghaiData["Score"]).apply(np.ceil)
-shanghaiData.award=shanghaiData.award*0.1
 
 # clean world_rank col:
 shanghaiData['world_rank'] = shanghaiData['world_rank'].str.strip('=')
@@ -190,11 +184,6 @@ dataTypeSeries = cwurData.dtypes
 # dropping the broad_impact column with the most missing values
 cwurData=cwurData.drop(['broad_impact'], axis = 1)
 
-# create new col bases on the forbes college rankings with some modifications:
-# https://en.wikipedia.org/wiki/College_and_university_rankings#:~:text=Forbes%20College%20rankings
-#Student satisfaction constitutes 25% of the score, Post-graduate success 32.5% of the score, Student debt loads 25% of the score, Graduation rate 7.5% of the score, Academic success 10% of the score. 
-cwurData["Estimated_Score"] = cwurData["score"] - (cwurData["quality_of_education"] * 0.35 + cwurData["alumni_employment"] * 0.45 + cwurData["influence"] * 0.20 )
-
 # rename score col
 cwurData.rename(columns={'score': 'total_score'})
 #print('cwur data---------------')
@@ -240,7 +229,7 @@ for data in data_list:
     #    data.join(education_expenditure_supplementary_data.set_index('country'), on='country')
 
     #split train and test data by last year avaliable
-    test = data.loc[data['year'] == data['year'].unique()[-1]]
+    val = data.loc[data['year'] == data['year'].unique()[-1]]
     train = data.loc[data['year'] != data['year'].unique()[-1]]
 
     #check max features
@@ -248,15 +237,16 @@ for data in data_list:
         #print("entro en el if de las caractetisticas")
         features[data.name] = features[data.name][0:params['max_features']]
 
-    test_X = test[features[data.name]] 
-    test_y = test.chances
+    val_X = val[features[data.name]] 
+    val_y = val[['chances']]
     train_X = train[features[data.name]] 
-    train_y = train.chances
-    data_arr = [test_X, test_y, train_X, train_y]
+    #train_y = train.chances
+    train_y = train[['chances']]
+    data_arr = [val_X, val_y, train_X, train_y]
 
     # convert to csv test and train data:
     for i in range(len(data_arr)):
-        data_arr[i].to_csv(path_or_buf=path_to_write_files + data.name + "-" + file_names[i] + ".csv",
+        data_arr[i].to_csv(path_or_buf=os.path.join(path_to_write_files, data.name + "-" + file_names[i] + ".csv"),
                             index_label=False)
     #print(data.name)
     #print(data.head(10))

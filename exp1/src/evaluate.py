@@ -16,7 +16,8 @@ if len(sys.argv) != 7:
 params = yaml.safe_load(open("params.yaml"))["train"]
 
 model_file = sys.argv[1]
-path_to_files = sys.argv[2] + params['train_data']
+path_to_files = sys.argv[2]
+train_data = params['train_data']
 scores_file = sys.argv[3]
 prc_file = sys.argv[4]
 roc_file = sys.argv[5]
@@ -30,24 +31,24 @@ for i in range(3, len(sys.argv)):
         os.mkdir(sys.argv[i].split('/')[1])
 
 # read test data
-test_x = pd.read_csv(path_to_files + "-test_x.csv")
-test_y = pd.read_csv(path_to_files + "-test_y.csv")
+val_x = pd.read_csv(os.path.join(path_to_files, train_data+"-val_x.csv"))
+val_y = pd.read_csv(os.path.join(path_to_files, train_data+"-val_y.csv"))
 
 # load model
 with open(model_file, "rb") as fd:
     model = pickle.load(fd)
 
-predictions_by_class = model.predict_proba(test_x)
+predictions_by_class = model.predict_proba(val_x)
 predictions = predictions_by_class[:, predictions_by_class.shape[1]-1]
 
-precision, recall, prc_thresholds = metrics.precision_recall_curve(test_y, predictions)
-fpr, tpr, roc_thresholds = metrics.roc_curve(test_y, predictions)
+precision, recall, prc_thresholds = metrics.precision_recall_curve(val_y, predictions)
+fpr, tpr, roc_thresholds = metrics.roc_curve(val_y, predictions)
 
-#avg_prec = metrics.average_precision_score(test_y, predictions)
+#avg_prec = metrics.average_precision_score(val_y, predictions)
 try:
-    roc_auc = metrics.roc_auc_score(test_y, predictions)
+    roc_auc = metrics.roc_auc_score(val_y, predictions)
 except ValueError:
-    # Only one class in test-y -- cannot calculate ROC AUC
+    # Only one class in val-y -- cannot calculate ROC AUC
     # Setting to 0
     roc_auc = 0.
 
@@ -82,18 +83,18 @@ with open(roc_file, "w") as fd:
     )
 
 # produce confusion matrix
-predicted_values = model.predict(test_x)
+predicted_values = model.predict(val_x)
 
-confu_mat = test_y.reset_index(drop=True)
+confu_mat = val_y.reset_index(drop=True)
 confu_mat.rename(columns={'chances': 'actual_chances'}, inplace=True)
 confu_mat['predicted_chances'] = pd.Series(predicted_values)
 confu_mat.to_csv(conf_file, index=False, index_label=False)
 
 # generate: precision, recall, f1 ands accuracy
-precision = metrics.precision_score(test_y, predicted_values)
-recall = metrics.recall_score(test_y, predicted_values)
-f1 = metrics.f1_score(test_y, predicted_values)
-accuracy = metrics.accuracy_score(test_y, predicted_values)
+precision = metrics.precision_score(val_y, predicted_values)
+recall = metrics.recall_score(val_y, predicted_values)
+f1 = metrics.f1_score(val_y, predicted_values)
+accuracy = metrics.accuracy_score(val_y, predicted_values)
 
 # write metrics in file
 with open(scores_file, "w") as fd:
