@@ -1,0 +1,14 @@
+name: exp1
+channels:
+  - conda-forge
+dependencies:
+  - python=3.9.5
+  - pip
+  - kaggle
+  - pip:
+    - apache-airflow==2.1.1
+    - pandas
+    - numpy
+    - scikit-learn>=1.0 
+    - Werkzeug
+    - gitpython
