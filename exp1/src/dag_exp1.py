@@ -95,22 +95,18 @@ download_data = BashOperator(
     # download datasets
     kaggle datasets download mylesoneill/world-university-rankings \
         -p data/downloaded_data/ --unzip -o &&
-    
-    # To check later if the files were already in the folder
-    EXISTS_FILE=$(ls data/*.dvc 2>/dev/null| wc -l)
 
     # track datasets with dvc
     dvc add data/downloaded_data/ &&
 
     # check if the donwloaded dataset is the same as the tracked one by dvc
     OUTPUT=$(dvc diff --targets data/downloaded_data/ -- HEAD)
-    if [ $EXISTS_FILE -eq 0 ] || grep -q 'modified' <<< $OUTPUT ||  grep -q 'added' <<< $OUTPUT || \
-        grep -q 'renamed' <<< $OUTPUT ||  grep -q 'deleted' <<< $OUTPUT;
-    then
-        # and with git
-        git add data/downloaded_data.dvc data/.gitignore
-        git commit -m "Added raw data from kaggle"
-    fi
+    
+    # and with git
+    git add data/downloaded_data.dvc data/.gitignore
+    git commit -m "Added raw data from kaggle"
+
+    echo $OUTPUT
     """
     ),
     dag=dag,
@@ -151,7 +147,7 @@ create_pipeline = BashOperator(
     dvc remote add -d -f localremote ./dvcstore &&
 
     # tell git we do not want to track plots 
-    grep -qxF 'dvcstore/' .gitignore || echo 'dvcstore/' >> .gitignore
+    grep -qxF 'dvcstore/' .gitignore 2>/dev/null || echo 'dvcstore/' >> .gitignore
 
     dvc run -n featurize \
     -p featurize.world_rank -p featurize.max_rank -p featurize.max_features \
