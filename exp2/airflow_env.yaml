@@ -1,0 +1,13 @@
+name: exp2
+channels:
+  - conda-forge
+dependencies:
+  - python==3.9
+  - pip
+  - pip:
+    - apache-airflow==2.1.1
+    - mlflow==1.19
+    - pandas
+    - scikit-learn>=1.0 
+    - requests
+

@@ -1,0 +1,56 @@
+name: Exp2_MLproject
+
+# path to conda yaml file, in this case it is in the same
+# folder as this file
+conda_env: my_env.yaml
+
+# define all default values here
+# if you want to CHANGE ANY VALUE do it here not in entry_points declaration
+raw_data_path: &raw_path ./data/downloaded_data/
+prepared_data_path: &prepared_path ./data/prepared_data/
+max_rank_cte: &max_rank 100
+world_rank_cte: &world_rank 50
+max_features_cte: &max_features 12
+train_data_cte: &train_data cwurData
+n_est_cte: &n_est 100
+use_cache_cte: &use_cache True
+
+entry_points:
+  download:
+    parameters:
+      raw_data: {type: string, default: *raw_path}
+    command: "bash src/download.sh {raw_data}"
+    
+  featurization:
+    parameters:
+      max_rank: {type: int, default: *max_rank}
+      world_rank: {type: int, default: *world_rank}
+      max_features: {type: int, default: *max_features}
+      raw_data: {type: string, default: *raw_path}
+      prepared_data: {type: string, default: *prepared_path}
+    command: "python src/featurization.py --raw_data {raw_data} --prepared_data {prepared_data} --max_rank {max_rank}
+    						--world_rank {world_rank} --max_features {max_features}"
+    
+  train:
+    parameters:
+      prepared_data: {type: string, default: *prepared_path}
+      train_data: {type: string, default: *train_data}
+      n_est: {type: int, default: *n_est}
+    command: "python src/train.py --prepared_data {prepared_data} --train_data {train_data} --n_est {n_est}"
+    
+  main:
+    parameters:
+      raw_data: {type: string, default: *raw_path}
+      prepared_data: {type: string, default: *prepared_path}
+      max_rank: {type: int, default: *max_rank}
+      world_rank: {type: int, default: *world_rank}
+      max_features: {type: int, default: *max_features}
+      train_data: {type: string, default: *train_data}
+      n_est: {type: int, default: *n_est}
+      use_cache: {type: boolean, default: *use_cache}
+    command: "python src/main.py --raw_data {raw_data} --prepared_data {prepared_data} --max_rank {max_rank}
+    						--world_rank {world_rank} --max_features {max_features} --train_data {train_data}
+    						 --n_est {n_est} --use_cache {use_cache}"
+  
+    
+    

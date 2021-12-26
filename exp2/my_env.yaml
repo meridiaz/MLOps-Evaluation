@@ -1,0 +1,21 @@
+name: mlflowenv
+channels:
+  - conda-forge
+dependencies:
+  - python==3.9.5
+  - pip
+  - kaggle
+  - pip:
+    - apache-airflow==2.1.1
+    - mlflow>=1.0
+    - pandas
+    - numpy
+    - scikit-learn>=1.0 
+    - requests
+    - click
+    - matplotlib
+    - seaborn
+    - argparse
+    - Werkzeug
+    
+    #mlflow==1.19

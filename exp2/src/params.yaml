@@ -1,0 +1,11 @@
+dag_exp2_tfg_teleco:
+  parameters:
+    email_to_notify_exp2: example@mail.com
+    path_to_repo_exp2: /home/meri/Escritorio/tfg/teleco/MLOps-Evaluation/exp2
+    
+
+another_dag_id:
+
+another_dag_id_2:
+
+
