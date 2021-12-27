@@ -274,10 +274,7 @@ compare_exps = BashOperator(
     bash_command=(
     """
     cd {{var.value.path_to_repo_exp1}}
-    dvc exp run -S train.train_data="cwurData" -S train.n_est=100 \
-    -S featurize.max_features=12 -S featurize.world_rank=50 \
-    -S featurize.max_rank=100 -n cwurData -f &&
-
+    
     # plot differences in saved experiments with git
     # plot sf3 vs snest64 
     dvc params diff Snest64 Sf3 &&
@@ -296,37 +293,39 @@ compare_exps = BashOperator(
     --targets ./evaluation/prc.json -y recall \
     -o dvc_plots/sf3_vs_snest64/recall &&
 
-    # plot tmr300 vs cwurdata
-    dvc params diff Tmr300 cwurData &&
-    dvc metrics diff Tmr300 cwurData &&
+    dvc exp show --no-pager
 
-    dvc plots diff Tmr300 cwurData \
+    # plot tmr300 vs cwurdata
+    dvc params diff Tmr300 &&
+    dvc metrics diff Tmr300 &&
+
+    dvc plots diff Tmr300 \
     --targets evaluation/confu_mat.csv \
     --template confusion -x actual_chances -y predicted_chances \
     -o dvc_plots/tmr300_vs_cwurdata/conf_mat &&
 
-    dvc plots diff Tmr300 cwurData \
+    dvc plots diff Tmr300 \
     --targets ./evaluation/prc.json -y precision \
     -o dvc_plots/tmr300_vs_cwurdata/precision &&
 
-    dvc plots diff Tmr300 cwurData \
+    dvc plots diff Tmr300 \
     --targets ./evaluation/prc.json -y recall \
     -o dvc_plots/tmr300_vs_cwurdata/recall &&
                             
     # plot cwurdata vs cmr300
-    dvc params diff Cmr300 cwurData &&
-    dvc metrics diff Cmr300 cwurData &&
+    dvc params diff Cmr300 &&
+    dvc metrics diff Cmr300 &&
 
-    dvc plots diff Cmr300 cwurData \
+    dvc plots diff Cmr300 \
     --targets evaluation/confu_mat.csv \
     --template confusion -x actual_chances -y predicted_chances \
     -o dvc_plots/cmr300_vs_cwurdata/conf_mat &&
 
-    dvc plots diff Cmr300 cwurData \
+    dvc plots diff Cmr300 \
     --targets ./evaluation/prc.json -y precision \
     -o dvc_plots/cmr300_vs_cwurdata/precision &&
 
-    dvc plots diff Cmr300 cwurData \
+    dvc plots diff Cmr300 \
     --targets ./evaluation/prc.json -y recall \
     -o dvc_plots/cmr300_vs_cwurdata/recall &&
     
