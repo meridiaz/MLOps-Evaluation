@@ -20,7 +20,7 @@ Here is shown a demo in wich two experiments are execute, one of them in a temp 
 
 ### README FILE
 
-```
+``` markdown
 This experiment shows an example on how to use DVC along with Git. Airflow executes each DVC command automatically
 
 To execute the experiment some requirements must be satisfied:
