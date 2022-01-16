@@ -23,3 +23,5 @@ Bellow is shown a demo in wich MLflow Tracking, Mflow Models and Mlflow Model Re
 Bellow is shown a demo in which an Airflow import error is fixed to run this experiment, also this use case DAG is shown
 
 ![](assets/images/airflow_exp2.gif "Airflow gif")
+
+[back](./)
