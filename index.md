@@ -41,9 +41,9 @@ Before executing any of this cases please check `README.md` file to check all re
 
 ### Acknowledgments
 <table>
-<td align="center"><a href="https://github.com/glimmerphoenix"><img src="https://avatars.githubusercontent.com/u/1359409?v=4" height="120" width="100px;" alt=""/><br /><sub><b>Felipe Ortega Soto</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors/commits?author=tbenning" title="Code">💻</a> <a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="https://github.com/all-contributors/all-contributors/commits?author=kentcdodds" title="Documentation">📖</a> </td>
+<td align="center"><a href="https://github.com/glimmerphoenix"><img src="https://avatars.githubusercontent.com/u/1359409?v=4" height="120" width="100px;" alt=""/><br /><sub><b>Felipe Ortega Soto</b></sub></a><br /><a title="Code">💻</a> <a title="Answering Questions">💬</a> <a title="Documentation">📖</a> <a title="Talks" </a></td>
   
-<td align="center"><a href="https://github.com/vmtenorio"><img src="https://github.com/vmtenorio/vmtenorio.github.io/blob/master/images/vmtg.jpg?raw=true" height="120" width="100px;" alt=""/><br /><sub><b>Víctor Manuel Tenorio Gómez</b></sub></a><br /><a href="https://github.com/all-contributors/all-contributors/commits?author=tbenning" title="Code">💻</a> <a href="#question-kentcdodds" title="Answering Questions">💬</a> <a href="https://github.com/all-contributors/all-contributors/commits?author=kentcdodds" title="Documentation">📖</a> </td>
+<td align="center"><a href="https://github.com/vmtenorio"><img src="https://github.com/vmtenorio/vmtenorio.github.io/blob/master/images/vmtg.jpg?raw=true" height="120" width="100px;" alt=""/><br /><sub><b>Víctor Manuel Tenorio Gómez</b></sub></a><br /><a title="Code">💻</a> <a title="Answering Questions">💬</a> <a title="Documentation">📖</a> <a title="Reviewed Pull Requests" </a></td>
   
 </table>
 
