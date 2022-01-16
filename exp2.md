@@ -12,12 +12,14 @@ Before executing this experiment check [`exp2/README.m`](https://github.com/meri
 - `airflow_env.yaml` file is the declaration of an Anaconda envivoronment needed to activate to execute this use case
 - Note that some files are included in `.gitignore` file such us `artifacts` folder and `.db` files. These files must not be tracked by git because of its size.
 
-### Mlflow Demo
+### MLflow Demo
 
-Here is shown a demo in wich MLflow Tracking, Mflow Models and Mlflow Model Registry modules are shown
+Bellow is shown a demo in wich MLflow Tracking, Mflow Models and Mlflow Model Registry modules are shown
 
 ![MLflow demo](assets/images/mlflow.gif "MLflow demo")
 
 ### Airflow Demo
 
-![](assets/images/airflow_exp1.gif "Airflow gif")
+Bellow is shown a demo in which an Airflow import error is fixed to run this experiment, also this use case DAG is shown
+
+![](assets/images/airflow_exp2.gif "Airflow gif")
