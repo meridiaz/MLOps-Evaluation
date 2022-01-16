@@ -32,7 +32,7 @@ For further reading please check bachelor thesis above button.
 
 Two simple cases have been implemented to illustrate in a practical way some of the above concepts. They can be found in `exp1` and `exp2` folders.
 
-Tools used are [DVC](https://dvc.org/), [Mlflow](https://www.mlflow.org/) and [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
+Tools used are [DVC](https://dvc.org/), [MLflow](https://www.mlflow.org/) and [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
 
 - [**First use case**](./exp1.html) uses DVC and Apache Airflow tools. First one is used to create a pipeline to process raw data and create models. This pipeline can be used to execute some experiments in which you can change some parameters and then you can share them with other experts. On the other hand, Airflow is used to automate all this process and to provide an interface for managing and visualizing the execution of tasks. Follow [this link](./exp1.html) for more information. 
 - [**Second use case**](./exp2.html)  uses MLflow and Apache Airflow tools. First one is used to create a pipeline to process raw data and create models, tracking metrics of the created models, store them in a model registry and deploy them locally. Again Airflow is used to automate the process of executing this tasks. Follow [this link](./exp2.html) for more information.
