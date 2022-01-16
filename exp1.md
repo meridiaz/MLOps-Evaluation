@@ -1,6 +1,7 @@
 ## First use case
 
-Before executing this experiment check [`exp1/README.m`](main/exp1/README.md) file
+Before executing this experiment check [`exp1/README.m`](https://github.com/meridiaz/MLOps-Evaluation/blob/main/exp1/README.md) file.
+
 `exp1` folder constains the following files:
 - Raw data downloaded from Kaggle will be located in `data/downloaded_data`
 - Clean raw data will be located in `data/prepared_data`
@@ -20,8 +21,8 @@ Here is shown a demo in wich two experiments are execute, one of them in a temp 
 
 ### Airflow screenshoots
 
-![](assets/images/captura_dag_rama1 "Airflow screenshot")
+![](assets/images/captura_dag_rama1.png "Airflow screenshot")
 
-![](assets/images/captura_dag_rama2 "Airflow screenshot")
+![](assets/images/captura_dag_rama2.png "Airflow screenshot")
 
 ```
