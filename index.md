@@ -8,7 +8,7 @@ This project aims to highlight the current situation in which companies find the
 The methodologies and techniques that allow this process to be carried out are known as machine learning operations.
 
 This project has propose an architecture to create an deploy ML models automatically, see bellow:
-![Fully automated high-level process](/assets/images/high_level.png "Fully automated process")
+![Fully automated high-level process](assets/images/high_level.png "Fully automated process")
 
 Some important elements are:
 - **Orchestrated experiment pipeline:** creates automatically models only specifying some parameters and the type of model
@@ -20,7 +20,7 @@ Some important elements are:
 - **Performance monitoring:** is responsible for checking that the performance of the deployed models remains above a threshold, otherwise a trigger occurs and a decision needs to be made: 1, 2a, 2b or 3.
 
 This project also associates those software tools that allow this whole process to be carried out, see image bellow:
-![Tools that take care of implementing each step](/assets/images/tools.png "Tools in fully automated process")
+![Tools that take care of implementing each step](assets/images/tools.png "Tools in fully automated process")
 
 All the tools associated with the concept of MLOps by accessing this link on [this link](https://github.com/EthicalML/awesome-production-machine-learning#model-serving-and-monitoring)
 
