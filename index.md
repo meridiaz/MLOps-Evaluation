@@ -1,37 +1,37 @@
-## Welcome to GitHub Pages
+## About this project
 
-You can use the [editor on GitHub](https://github.com/meridiaz/MLOps-Evaluation/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Nowadays, there is no common methodology or definition for the creation of machine learning (ML) models and their deployment to production in an optimal and automated way. Some companies manage to carry out this process inefficiently and invest large amounts of resources in it.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This project aims to highlight the current situation in which companies find themselves, to analyze the stages that make up the life cycle of an ML model and finally, to propose and clarify the elements, functions and technologies necessary to carry out the above process automatically with almost no manual intervention.
 
-### Markdown
+### Contribution of this project
+The methodologies and techniques that allow this process to be carried out are known as machine learning operations.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+This project has propose an architecture to create an deploy ML models automatically, see bellow:
+![Fully automated high-level process](/img/high_level.png "Fully automated process")
 
-```markdown
-Syntax highlighted code block
+Some important elements are:
+- **Orchestrated experiment pipeline:** creates automatically models only specifying some parameters and the type of model
+- **CI:** ensures that all elements are tested before deployment
+- **Packages:** contains everything needed to deploy the pipeline and model to production
+- **Automated pipeline:** this pipeline automatically deploys the trained models in production and processes the data for which you want to make predictions
+- **Model registry:** stores all the versions of the trained models, belonging to a single project, controlling their passage to production
+- **Model catalog:** stores a record of the models of the entire company, indicating the decisions that led to this solution
+- **Performance monitoring:** is responsible for checking that the performance of the deployed models remains above a threshold, otherwise a trigger occurs and a decision needs to be made: 1, 2a, 2b or 3.
 
-# Header 1
-## Header 2
-### Header 3
+This project also associates those software tools that allow this whole process to be carried out, see image bellow:
+![Tools that take care of implementing each step](/img/tools.png "Tools in fully automated process")
 
-- Bulleted
-- List
+All the tools associated with the concept of MLOps by accessing this link on [this link](https://github.com/EthicalML/awesome-production-machine-learning#model-serving-and-monitoring)
 
-1. Numbered
-2. List
+For further reading please check full the end-of-degree dissertation.
 
-**Bold** and _Italic_ and `Code` text
+### Use cases
 
-[Link](url) and ![Image](src)
-```
+Two simple cases have been implemented to illustrate in a practical way some of the above concepts. They can be found in `exp1` and `exp2` folders.
+- **First use case** uses DVC and Apache Airflow tools. First one is used to create a pipeline to process raw data and create models. This pipeline can be used to execute some experiments in which you can change some parameters and then you can share them with other experts. On the other hand, Airflow is used to automate all this process and to provide an interface for managing and visualizing the execution of tasks.
+- **Second use case** uses MLflow and Apache Airflow tools. First one is used to create a pipeline to process raw data and create models, tracking metrics of the created models, store them in a model registry and deploy them locally. Again Airflow is used to automate the process of executing this tasks.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Before executing any of this cases please check `README.md` file to check all requisities needed.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/meridiaz/MLOps-Evaluation/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
