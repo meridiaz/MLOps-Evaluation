@@ -22,7 +22,7 @@ Some important elements are:
 This project also associates those software tools that allow this whole process to be carried out, see image bellow:
 ![Tools that take care of implementing each step](assets/images/tools.png "Tools in fully automated process")
 
-All the tools associated with the concept of MLOps by accessing this link on [this link](https://github.com/EthicalML/awesome-production-machine-learning#model-serving-and-monitoring)
+All the tools associated with the concept of MLOps are listed on [this link](https://github.com/EthicalML/awesome-production-machine-learning#model-serving-and-monitoring)
 
 As you can see pipelines are a key concept, they provide a way to automated and modularize tasks in order to build flexible, reusable, easy-to-use and debug code.
 
