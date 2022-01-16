@@ -25,6 +25,7 @@ As you can see in demo is shown Airflow`s home page with all created DAGs, then 
 
 ![](assets/images/airflow_exp1.gif "Airflow gif")
 
+Bellow are shown some images that show the status of tasks depending on whether one branch or another is running
 ![](assets/images/captura_dag_rama1.png "Airflow screenshot")
 
 ![](assets/images/captura_dag_rama2.png "Airflow screenshot")
