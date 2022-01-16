@@ -24,11 +24,16 @@ This project also associates those software tools that allow this whole process 
 
 All the tools associated with the concept of MLOps by accessing this link on [this link](https://github.com/EthicalML/awesome-production-machine-learning#model-serving-and-monitoring)
 
+As you can see pipelines are a key concept, they provide a way to automated and modularize task in order to build flexible, reusable, easy-to-use and debug code.
+
 For further reading please check full the end-of-degree dissertation.
 
 ### Use cases
 
 Two simple cases have been implemented to illustrate in a practical way some of the above concepts. They can be found in `exp1` and `exp2` folders.
+
+Tools used are [DVC](https://dvc.org/), [Mlflow](https://www.mlflow.org/) and [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
+
 - **First use case** uses DVC and Apache Airflow tools. First one is used to create a pipeline to process raw data and create models. This pipeline can be used to execute some experiments in which you can change some parameters and then you can share them with other experts. On the other hand, Airflow is used to automate all this process and to provide an interface for managing and visualizing the execution of tasks.
 - **Second use case** uses MLflow and Apache Airflow tools. First one is used to create a pipeline to process raw data and create models, tracking metrics of the created models, store them in a model registry and deploy them locally. Again Airflow is used to automate the process of executing this tasks.
 
