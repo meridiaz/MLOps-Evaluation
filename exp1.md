@@ -13,13 +13,17 @@ Before executing this experiment check [`exp1/README.m`](https://github.com/meri
 - `my_env.yaml` file is the declaration of an Anaconda envivoronment needed to activate to execute this use case
 - Note that by default DVC creates a local `.gitignore` file to ignore big files that must not be tracked by git, such as model.pkl and data/downloaded_data folder, 
 
-### Demo
+### DVC Demo
 
 Here is shown a demo in wich two experiments are execute, one of them in a temp dir and the other locally. Then one of the is uploaded to git remote and delete from workspace. After that it is downloaded from git remote back to workspace
 
 ![DVC demo](assets/images/dvc.gif "DVC demo")
 
-### Airflow screenshoots
+### Airflow screenshoots and Demo
+
+As you can see in demo is shown Airflow`s home page with all created DAGs, then exp1 DAG is shown with some logs, finally all Airflow variables needed to run this use case are shown
+
+![](assets/images/airflow_exp1.gif "Airflow gif")
 
 ![](assets/images/captura_dag_rama1.png "Airflow screenshot")
 
