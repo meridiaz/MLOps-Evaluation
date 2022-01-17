@@ -30,7 +30,7 @@ You can download the full text of the bachelor thesis in the corresponding butto
 
 ### Use cases
 
-Two simple cases have been implemented to illustrate in a practical way some of the above concepts. They can be found in [`exp1`](./exp1.html) and `exp2`(./exp2.html) folders.
+Two simple cases have been implemented to illustrate in a practical way some of the above concepts. They can be found in [`exp1`](./exp1.html) and [`exp2`](./exp2.html) folders.
 
 Tools used are [DVC](https://dvc.org/), [MLflow](https://www.mlflow.org/) and [Apache Airflow](https://airflow.apache.org/docs/apache-airflow/stable/index.html)
 
