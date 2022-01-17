@@ -53,9 +53,11 @@ This project concludes with the following:
 ## Acknowledgments
 <table>
   <tr>
-<td align="center"><a href="https://github.com/glimmerphoenix"><img src="https://avatars.githubusercontent.com/u/1359409?v=4" height="120" width="100px;" alt=""/><br /><sub><b>Felipe Ortega Soto</b></sub></a><br /><a title="Code">💻</a> <a title="Answering Questions">💬</a> <a title="Documentation">📖</a> <a title="Talks" >📢</a></td>
+<td align="center"><a href="https://github.com/glimmerphoenix"><img src="https://avatars.githubusercontent.com/u/1359409?v=4" height="120" width="110px;" alt=""/><br /><sub><b>Felipe Ortega Soto</b></sub></a><br /><a title="Code">💻</a> <a title="Answering Questions">💬</a> <a title="Documentation">📖</a> <a title="Talks" >📢</a></td>
   
 <td align="center"><a href="https://github.com/vmtenorio"><img src="https://github.com/vmtenorio/vmtenorio.github.io/blob/master/images/vmtg.jpg?raw=true" height="120" width="100px;" alt=""/><br /><sub><b>Víctor Manuel Tenorio Gómez</b></sub></a><br /><a title="Code">💻</a> <a title="Answering Questions">💬</a> <a title="Documentation">📖</a> <a title="Reviewed Pull Requests" >👀</a></td>
+
+<td align="center"><img src="assets/images/mother.jpg?raw=true" height="120" width="100px;" alt=""/><br /><sub><b>My mother</b></sub></a><br /><a title="Code">💻<a title="Reviewed Pull Requests" >👀</a> <strong> ❤️ </strong></td>
 </tr>  
 </table>
 
