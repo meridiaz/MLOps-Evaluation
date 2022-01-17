@@ -50,7 +50,7 @@ This project concludes with the following:
 -  MLflow is an user-friendly tool that addresses some of the most complex problems that arise, such as making experiments reproducible and packaging the models independently of the library that created them. In addition, it allows you to deploy models on cloud platforms and to feed them with the data for which you want to make predictions in a simple way. 
 
 
-### Acknowledgments
+## Acknowledgments
 <table>
   <tr>
 <td align="center"><a href="https://github.com/glimmerphoenix"><img src="https://avatars.githubusercontent.com/u/1359409?v=4" height="120" width="100px;" alt=""/><br /><sub><b>Felipe Ortega Soto</b></sub></a><br /><a title="Code">💻</a> <a title="Answering Questions">💬</a> <a title="Documentation">📖</a> <a title="Talks" >📢</a></td>
