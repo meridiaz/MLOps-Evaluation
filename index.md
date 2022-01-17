@@ -57,7 +57,7 @@ This project concludes with the following:
   
 <td align="center"><a href="https://github.com/vmtenorio"><img src="https://github.com/vmtenorio/vmtenorio.github.io/blob/master/images/vmtg.jpg?raw=true" height="120" width="100px;" alt=""/><br /><sub><b>Víctor Manuel Tenorio Gómez</b></sub></a><br /><a title="Code">💻</a> <a title="Answering Questions">💬</a> <a title="Documentation">📖</a> <a title="Reviewed Pull Requests" >👀</a></td>
 
-<td align="center"><img src="assets/images/mother.jpg?raw=true" height="120" width="100px;" alt=""/><br /><sub><b>My mother</b></sub></a><br /><a title="Code">💻<a title="Reviewed Pull Requests" >👀</a> <strong> ❤️ </strong></td>
+<td align="center"><img src="assets/images/mother.jpg?raw=true" height="120" width="100px;" alt=""/><br /><sub><b>My mother</b></sub><br /><a title="Code">💻<a title="Reviewed Pull Requests" >👀</a> <a <strong> ❤️ </strong></a></td>
 </tr>  
 </table>
 
