@@ -1,10 +1,10 @@
-## About this project
+# About this project
 
 Nowadays, there is no common methodology for the creation of machine learning (ML) models and their production deployment in an optimal and automated way. Some companies manage to carry out this process inefficiently and invest large amounts of resources in it.
 
 This project aims to highlight the current situation in which companies find themselves, to analyze the stages that make up the life cycle of an ML model and finally, to propose and clarify the elements, functions and technologies necessary to carry out the above process automatically with almost no manual intervention.
 
-### Contribution of this project
+## Contribution of this project
 The methodologies and techniques that allow this process to be carried out automatically and an in an optimal way are known as machine learning operations (MLOps).
 
 This project proposes an architecture to create an deploy ML models automatically, see bellow:
@@ -12,6 +12,7 @@ This project proposes an architecture to create an deploy ML models automaticall
 
 Some important elements are:
 - **Orchestrated experiment pipeline:** automatically creates models only specifying the model and its parameters.
+- **Source code:** in this element you may be thinking this is implemented by git/GitHub, but that's incorrect. GitHub doesn't let you upload large files, so there are other platforms, such as Google Cloud or AWS, that let you upload big files. GitHub is used to track and version metadata and small files, while cloud platforms are used to track model's code and data files.
 - **CI:** ensures that all elements are tested before deployment.
 - **Packages:** contains everything needed to deploy the pipeline and the model to production.
 - **Automated pipeline:** this pipeline automatically deploys the trained models in production and processes the data to be feeded to the model.
@@ -38,6 +39,16 @@ Tools used are [DVC](https://dvc.org/), [MLflow](https://www.mlflow.org/) and [A
 - [**Second use case**](./exp2.html)  uses MLflow and Apache Airflow. The first one is used to create a pipeline to process raw data and create models, tracking metrics of the created models, store them in a model registry and deploy them locally. Again Airflow is used to automate the process of executing these tasks. Follow [this link](./exp2.html) for more information.
 
 Before executing any of this cases please check `README.md` file of each use case.
+
+### Conclusions
+
+This project concludes with the following:
+- Literature does not provide a clear definition of the specific role to be played by each element of the diagram. Some experts propose definitions and guides to fully automated this process, but sometimes they differ slightly from each other.
+- In spite of the diagram shown above, there are some funcionality gaps that haven't been yet resolved due to the lack of tools or techniques to address them. These include automatic decision making when the performance of the model falls below a threshold (decisions 1, 2a, 2b and 3) and the implementation of the model catalog.
+- Airflow makes it easy to automate and modularize workflows. In addition, it offers a graphical interface that facilitates the management and execution of the different tasks. This makes possible to debug or improve certain tasks.
+- DVC is an intuitive and easy-to-use tool, partly due to its strong parallelism with git. It allows versioning large volumes of information such as data and models. However, it is still a growing tool and its user community is small. Also it allows implement the source repository along with git.
+-  MLflow is an user-friendly tool that addresses some of the most complex problems that arise, such as making experiments reproducible and packaging the models independently of the library that created them. In addition, it allows you to deploy models on cloud platforms and to feed them with the data for which you want to make predictions in a simple way. 
+
 
 ### Acknowledgments
 <table>
