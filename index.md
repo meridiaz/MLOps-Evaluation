@@ -19,7 +19,7 @@ Some important elements are:
 - **Model catalog:** stores a record of the models of the entire company, indicating the decisions that led to this solution.
 - **Performance monitoring:** is responsible for checking that the performance of the deployed models remains above a threshold, otherwise triggers a decision: 1 (retrain deployed model), 2a (create a new model), 2b (change data proccessing in production) or 3 (change inputs of the model deployed).
 
-This project also associates those software tools that allow this whole process to be carried out, see image bellow:
+This project also indicates the software tools that implement each step of the process above, see image bellow:
 ![Tools that take care of implementing each step](assets/images/tools.png "Tools in fully automated process")
 
 All the tools associated with the concept of MLOps are listed on [this link](https://github.com/EthicalML/awesome-production-machine-learning#model-serving-and-monitoring).
