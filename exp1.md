@@ -10,7 +10,7 @@ Before executing this experiment check [`exp1/README.md`](https://github.com/mer
 - `src` folder contains all the source code needed to run the pipeline
 - `params.yaml` file contains all the configurable parameters for processing the data and creating the model
 - `dvc.yaml` file is the declaration of the DVC pipeline, while `dvc.lock`file contain metadata used by DVC to track pipeline's output files
-- `my_env.yaml` file is the declaration of an Anaconda envivoronment that must be activated in order to correctly execute this use case
+- `my_env.yaml` file defined the characteristics and dependencies of an Anaconda envivoronment that must be activated in order to correctly execute this use case
 - Note that, by default, DVC creates a local `.gitignore` file to ignore big files that must not be tracked by git, such as model.pkl and `data/downloaded_data` folder
 
 ### DVC Demo
